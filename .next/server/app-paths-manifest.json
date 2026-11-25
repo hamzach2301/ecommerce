@@ -1,5 +1,8 @@
 {
-  "/customize/page": "app/customize/page.js",
   "/page": "app/page.js",
-  "/_not-found/page": "app/_not-found/page.js"
+  "/product/[id]/page": "app/product/[id]/page.js",
+  "/cart/page": "app/cart/page.js",
+  "/checkout/page": "app/checkout/page.js",
+  "/customize/page": "app/customize/page.js",
+  "/shop/page": "app/shop/page.js"
 }
