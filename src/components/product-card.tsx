@@ -1,0 +1,8 @@
+"use client";
+import Link from "next/link";
+import { ArrowUpRight, ShoppingBag } from "lucide-react";
+import type { Product } from "@/data/products";
+import { money } from "@/lib/pricing";
+import { useCart } from "./cart-context";
+import { StickerArt } from "./sticker-art";
+export function ProductCard({ product }: { product: Product }) { const {addProduct}=useCart();return <article className="card" style={{overflow:"hidden",transition:"transform .2s, box-shadow .2s"}}><Link href={`/product/${product.id}`} aria-label={`View ${product.name}`}><StickerArt art={product.art} colors={product.colors} className="product-image"/></Link><div style={{padding:"16px 16px 17px"}}><div style={{display:"flex",justifyContent:"space-between",gap:8,alignItems:"start"}}><div><span className="pill" style={{background:"var(--bg-card)",color:"var(--text-secondary)",padding:"4px 8px"}}>{product.category}</span><h3 style={{margin:"9px 0 3px",fontSize:"1.15rem",letterSpacing:"-.03em"}}>{product.name}</h3><p className="muted" style={{fontSize:".85rem",margin:0}}>{product.description}</p></div><b>{money(product.price)}</b></div><div style={{display:"flex",gap:8,marginTop:15}}><button onClick={()=>addProduct(product)} className="btn btn-primary" style={{flex:1,minHeight:40,padding:"0 12px",fontSize:".86rem"}}><ShoppingBag size={15}/>Add</button><Link href={`/product/${product.id}`} className="btn btn-secondary" aria-label={`View ${product.name}`} style={{minHeight:40,padding:"0 11px"}}><ArrowUpRight size={17}/></Link></div></div><style>{`.product-image{height:220px}.card:hover{transform:translateY(-4px);box-shadow:0 15px 24px rgba(61,53,46,.1)}`}</style></article> }

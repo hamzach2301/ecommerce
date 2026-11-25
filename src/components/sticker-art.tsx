@@ -1,0 +1,1 @@
+export function StickerArt({ art, colors, className = "" }: { art: string; colors: [string, string]; className?: string }) { return <div className={`product-art ${className}`} style={{ background: `linear-gradient(145deg, ${colors[0]}, ${colors[1]})` }}><span aria-hidden="true">{art}</span></div>; }
